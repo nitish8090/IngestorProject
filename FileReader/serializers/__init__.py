@@ -1,0 +1,1 @@
+from .hot_files_serializers import HotFileSerializer

@@ -15,3 +15,4 @@ class HotFileViewSet(viewsets.ModelViewSet):
     def list(self, request, *args, **kwargs):
         logger.info("List Hol files called.")
         return super().list(request, *args, **kwargs)
+    

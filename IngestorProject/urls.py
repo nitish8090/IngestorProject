@@ -20,4 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("file-reader/", include("FileReader.urls")),
+    path("stac/", include("StacApp.urls")),
 ]

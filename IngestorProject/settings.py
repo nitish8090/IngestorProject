@@ -132,7 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 _1mb = 1024 * 1024
-LOG_DIR = '/logs'
+LOG_DIR = 'logs'
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -146,10 +146,22 @@ LOGGING = {
             "backupCount": 5,
             "formatter": "verbose",
         },
+        "file-reader": {
+            "level": "DEBUG",
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": os.path.join(LOG_DIR, "file-reader.log"),
+            "maxBytes": _1mb * 10,
+            "backupCount": 5,
+            "formatter": "verbose",
+        },
     },
     "loggers": {
         "django": {
-            "handlers": ["django", "console"],
+            "handlers": ["django"],
+            "level": "INFO",
+        },
+        "file-reader": {
+            "handlers": ["file-reader"],
             "level": "INFO",
         },
     },
